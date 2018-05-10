@@ -1,0 +1,10 @@
+﻿#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+int main()
+{
+    cout << "Hello Code Donut!" << endl;
+	system("pause");
+    return 0;
+}

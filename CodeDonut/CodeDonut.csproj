@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4D13FED0-BA5E-4D07-9EB2-2EAFFC871E3A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CodeDonut</RootNamespace>
+    <AssemblyName>CodeDonut</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>AppICO.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FastColoredTextBox, Version=2.16.21.0, Culture=neutral, PublicKeyToken=fb8aa12b994ef61b, processorArchitecture=MSIL">
+      <HintPath>..\packages\FCTB.2.16.21.0\lib\FastColoredTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controller\I18N.cs" />
+    <Compile Include="Code\Compile.cs" />
+    <Compile Include="View\CompileErrorInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CompileErrorInfoForm.Designer.cs">
+      <DependentUpon>CompileErrorInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ACMModeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ACMModeForm.Designer.cs">
+      <DependentUpon>ACMModeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\OutPutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OutPutForm.Designer.cs">
+      <DependentUpon>OutPutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\ProcessHelper.cs" />
+    <Compile Include="Controller\Configuration.cs" />
+    <Compile Include="Helper\INIOperation.cs" />
+    <Compile Include="Controller\FileManager.cs" />
+    <Compile Include="Helper\IOHelper.cs" />
+    <Compile Include="Code\AutoComplete.cs" />
+    <Compile Include="Code\HighlightingCode.cs" />
+    <Compile Include="View\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FindForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FindForm.Designer.cs">
+      <DependentUpon>FindForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReplaceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ReplaceForm.Designer.cs">
+      <DependentUpon>ReplaceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="View\ACMModeForm.resx">
+      <DependentUpon>ACMModeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CompileErrorInfoForm.resx">
+      <DependentUpon>CompileErrorInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FindForm.resx">
+      <DependentUpon>FindForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\OutPutForm.resx">
+      <DependentUpon>OutPutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ReplaceForm.resx">
+      <DependentUpon>ReplaceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewFile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OpenFile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Redo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SaveFile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Build.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BuildAndRun.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Run.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CDefaultCode.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CppDefaultCode.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\C_AutoComplete.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\C_HighLighting.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cpp_AutoComplete.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cpp_HighLightint.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppICO.ico" />
+    <None Include="Resources\Donut.png" />
+    <None Include="Resources\Lang_zh_cn.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

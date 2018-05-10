@@ -1,0 +1,215 @@
+﻿#C++ AutoComplete
+#####
+Keyword===
+__int16
+__int32
+__int64
+__int8
+bool
+break
+case
+char
+cin
+class
+const
+continue
+cout
+defalut
+delete
+do
+double
+else
+enum
+false
+float
+for
+goto
+if
+int
+list
+long
+long long
+map
+namespace
+new
+pragma
+queue
+return
+set
+short
+signed
+stack
+string
+struct
+struct
+switch
+true
+undef
+unsigned
+using
+vector
+wchar
+wchar_t
+while
+KeywordEnd;
+
+
+#####
+Functions===
+scanf(, )
+printf()
+
+sizeof()
+
+abs()
+ceil()
+fabs()
+floor()
+log()
+log10()
+pow(, )
+sqrt()
+
+strcat(, )
+strchr(, )
+strcmp(, )
+strcpy(, )
+strlen()
+strstr(, )
+
+clearerr()
+fclose()
+feof()
+fgetc()
+fgets(, , )
+fopen(, )
+fprintf(, )
+fputc(, )
+fputs(, )
+fread(, , , )
+fscanf(, , )
+fseek(, , )
+ftell()
+fwrite(, , , )
+getc()
+getchar()
+gets()
+putc(, )
+putchar()
+puts()
+rename(, )
+rewind()
+
+calloc(, )
+free()
+malloc()
+realloc(, )
+rand()
+exit()
+
+qsort()
+max(, )
+memset(, , )
+min(, )
+sort(, )
+swap(, )
+system()
+FunctionsEnd;
+
+
+
+#####
+Methods===
+assign()
+at()
+back()
+begin()
+cbegin()
+cend()
+clear()
+count()
+crbegin()
+crend()
+emplace()
+empty()
+end()
+equal_range()
+erase()
+find()
+front()
+insert()
+iterator
+lower_bound()
+merge()
+pop()
+pop_back()
+push()
+push_back()
+rbegin()
+reference()
+remove()
+remove_if()
+rend()
+resize()
+reverse_iterator()
+set()
+size()
+sort()
+swap()
+top()
+unique()
+upper_bound()
+MethodsEnd;
+
+
+
+#####
+Snippets===
+if(^)\n{\n;\n}
+if(^)\n{\n;\n}\nelse\n{\n;\n}
+for(^;;)\n{\n;\n}
+while(^)\n{\n;\n}
+do${\n^;\n}while();
+switch(^)\n{\ncase : break;\n}
+SnippetsEnd;
+
+
+
+#####
+DeclarationSnippets===
+class ^\n{\n};
+enum ^\n{\n};
+struct ^\n{\n};
+void ^()\n{\n;\n}
+DeclarationSnippetsEnd;
+
+
+
+#####
+Headers===
+#include 
+
+#include <iostream>
+#include <cstdlib>
+#include <cstdio>
+#include <algorithm>
+#include <string>
+#include <cstring>
+#include <cmath>
+#include <map>
+#include <queue>
+#include <set>
+#include <stack>
+#include <vector>
+#include <array>
+#include <cctype>
+#include <climits>
+#include <ctime>
+#include <fstream>
+#include <functional>
+#include <list>
+#include <sstream>
+#include <utility>
+
+#define 
+HeadersEnd;

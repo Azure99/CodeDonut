@@ -1,0 +1,15 @@
+﻿#C++ Highlighting code
+
+ClassName===\b(class|struct|enum|interface)\s+(?<range>\w+?)\b
+
+Keyword===\b(LRESULT|CString|String|WORD|DWORD|TCHAR|BYTE|BOOL|if|else|switch|case|break|defalut|return|true|false|for|do|while|continue|goto|cout|cin|endl|unsigned|signed|int|bool|char|short|long|float|double|void|wchar|wchar_t|__int8|__int16|__int32|__int64|struct|class|enum|interface|new|using|namespace|private|protected|public|const|delete)\b
+
+Function===\b(scanf|printf|sizeof|abs|ceil|fabs|floor|log|log10|pow|sqrt|strcat|strchr|strcmp|strcpy|strlen|strstr|clearerr|fclose|feof|fgetc|fgets|fopen|fprintf|fputc|fputs|fread|fscanf|fseek|ftell|fwrite|getc|getchar|gets|putc|putchar|puts|rename|rewind|calloc|free|malloc|realloc|rand|exit|qsort|max|memset|min|sort|swap|system)\b
+
+STL===\b(list|map|queue|set|stack|string|vector)\b
+
+STLmethods===\.\b(assign|at|back|begin|cbegin|cend|clear|count|crbegin|crend|emplace|empty|end|equal_range|erase|find|front|insert|iterator|lower_bound|merge|pop|pop_back|push|push_back|rbegin|reference|remove|remove_if|rend|resize|reverse_iterator|size|sort|swap|top|unique|upper_bound)\b
+
+PreprocessingCommand===#\b(include|pragma|if|else|elif|ifndef|ifdef|endif|undef|define|line|error)\b|__[^>]*__
+
+Header===<\b(algorithm|array|cctype|climits|cmath|cstdio|cstdlib|cstring|ctime|fstream|functional|iostream|list|map|queue|set|sstream|stack|string|utility|vector)\b>

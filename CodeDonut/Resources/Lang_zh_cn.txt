@@ -1,0 +1,93 @@
+﻿#简体中文
+
+##Form_Main
+File=文件
+New=新建
+C File=C源文件
+C++ File=C++源文件
+Open=打开
+Save=保存
+SaveAs=另存为
+CheckUpdate=检查更新
+About=关于
+Exit=退出
+
+Edit=编辑
+Undo=撤销
+Redo=重做
+Cut=剪切
+Copy=复制
+Paste=粘贴
+Delete=删除
+DeleteCurrentLine=删除当前行
+DeleteAll=删除全部
+SelectAll=选择全部
+
+Search=搜索
+Find=寻找
+Replace=替换
+
+Build=构建
+Run=运行
+Build And Run=构建并运行
+Run in ACM Mode=ACM运行模式
+
+Bug Report=错误反馈
+
+New C++File=新C++源文件
+Open File=打开文件
+Save File=保存文件
+
+#Message
+Do you want to exit?=您想要退出吗?
+Do you want to save changes?=您想要保存更改吗?
+Can't write source file.=无法写出源文件
+
+
+##Form_Find
+Find=寻找
+Find What:=寻找内容:
+<<Next=<<上一个
+Next>>=下一个>>
+Count=计数
+
+#Message
+You must input something that you want to find!=您必须输入您想要搜索的内容!
+
+
+##Form_Replace
+Replace=替换
+Find What:=寻找内容:
+Replace With:=替换为:
+<< Next=<< 上一个
+Next >>=下一个 >>
+ReplaceAll=替换全部
+
+#Message
+You must select something before replace!=在替换之前您必须选中一些内容!
+
+
+##Form_CompileErrorInfo
+Compile Information=编译信息
+
+
+##ACMMode
+Path:=路径:
+InPut:=输入:
+Time Limit:=时间限制:
+OutPut:=输出:
+Run=运行:
+Judging...=评测中:
+Cancel=取消:
+
+##Message
+Compile successful=编译成功
+Unknown Error=未知错误
+Unknown Error=未知信息
+Can't Run Compiler!=未能调用编译器!
+Compile Information =编译信息 
+-Error =-错误 
+-Warning =-警告 
+-note=-消息
+By Azure99 QQ:961523404=专为ACMer和初学者设计的IDE，作者:Azure99 QQ:961523404
+Latest version=暂未开发，您想要打开最新版本的发布页面吗？

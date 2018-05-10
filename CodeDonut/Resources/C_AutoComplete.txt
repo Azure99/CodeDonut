@@ -1,0 +1,146 @@
+﻿##C AutoComplete
+#####
+Keyword===
+__int16
+__int32
+__int64
+__int8
+auto
+break
+case
+char
+const
+continue
+default
+do
+double
+else
+enum
+extern
+float
+for
+goto
+if
+int
+include
+long
+long long
+register
+return
+short
+signed
+sizeof
+static
+struct
+switch
+typedef
+union
+unsigned
+void
+volatile
+while
+KeywordEnd;
+
+
+#####
+Functions===
+scanf(, )
+printf()
+
+sizeof()
+
+abs()
+ceil()
+fabs()
+floor()
+log()
+log10()
+pow(, )
+sqrt()
+
+strcat(, )
+strchr(, )
+strcmp(, )
+strcpy(, )
+strlen()
+strstr(, )
+
+clearerr()
+fclose()
+feof()
+fgetc()
+fgets(, , )
+fopen(, )
+fprintf(, )
+fputc(, )
+fputs(, )
+fread(, , , )
+fscanf(, , )
+fseek(, , )
+ftell()
+fwrite(, , , )
+getc()
+getchar()
+gets()
+putc(, )
+putchar()
+puts()
+rename(, )
+rewind()
+
+calloc(, )
+free()
+malloc()
+realloc(, )
+rand()
+exit()
+
+memset(, , )
+qsort()
+system()
+FunctionsEnd;
+
+
+
+#####
+Methods===
+MethodsEnd;
+
+
+
+#####
+Snippets===
+if(^)\n{\n;\n}
+if(^)\n{\n;\n}\nelse\n{\n;\n}
+for(^;;)\n{\n;\n}
+while(^)\n{\n;\n}
+do${\n^;\n}while();
+switch(^)\n{\ncase : break;\n}
+SnippetsEnd;
+
+
+
+#####
+DeclarationSnippets===
+enum ^\n{\n};
+struct ^\n{\n};
+void ^()\n{\n;\n}
+DeclarationSnippetsEnd;
+
+
+
+#####
+Headers===
+#include 
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+#include <ctype.h>
+#include <errno.h>
+#include <local.h>
+#include <signal.h>
+
+#define 
+HeadersEnd;
