@@ -122,15 +122,15 @@ namespace CodeDonut
                 filesNum.Add(-1);
                 for (int i = 0; i < files.Length; i++)
                 {
-                    string nowFileName = IOHelper.GetFileName(files[i]);
-                    if (nowFileName.StartsWith("unnamed"))
+                    string currentFileName = IOHelper.GetFileName(files[i]);
+                    if (currentFileName.StartsWith("unnamed"))
                     {
-                        int p = nowFileName.IndexOf('.');
+                        int p = currentFileName.IndexOf('.');
                         if (p == -1)
                         {
-                            p = nowFileName.Length;
+                            p = currentFileName.Length;
                         }
-                        string withOutType = nowFileName.Substring(0, p);
+                        string withOutType = currentFileName.Substring(0, p);
                         int num;//文件unnamed编号
                         Int32.TryParse(withOutType.Substring("unnamed".Length, withOutType.Length - "unnamed".Length), out num);
                         filesNum.Add(num);

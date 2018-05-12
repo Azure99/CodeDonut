@@ -34,6 +34,12 @@ namespace CodeDonut
         private void Form_Main_Load(object sender, EventArgs e)
         {
             Init();
+            //Test();
+        }
+
+        private void Test()
+        {
+            new MultipleCasesTestForm(@"D:\Program Files (x86)\CodeDonut_Beta0.05\SourceFile\unnamed8.cpp.exe").Show();
         }
 
         private void Form_Main_FormClosing(object sender, FormClosingEventArgs e)

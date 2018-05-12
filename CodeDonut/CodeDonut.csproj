@@ -51,6 +51,19 @@
   <ItemGroup>
     <Compile Include="Controller\I18N.cs" />
     <Compile Include="Code\Compile.cs" />
+    <Compile Include="Controller\MultipleJudgeController.cs" />
+    <Compile Include="View\MultipleCasesTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MultipleCasesTestForm.Designer.cs">
+      <DependentUpon>MultipleCasesTestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MultipleCasesResultForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MultipleCasesResultForm.Designer.cs">
+      <DependentUpon>MultipleCasesResultForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\CompileErrorInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +120,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MultipleCasesResultForm.resx">
+      <DependentUpon>MultipleCasesResultForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MultipleCasesTestForm.resx">
+      <DependentUpon>MultipleCasesTestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\OutPutForm.resx">
       <DependentUpon>OutPutForm.cs</DependentUpon>
@@ -194,6 +213,11 @@
     <None Include="Resources\Donut.png" />
     <None Include="Resources\Lang_zh_cn.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\CodeDonut.Judger\CodeDonut.Judger.csproj">
+      <Project>{d6e33c03-3b19-4fba-a714-3acefb723068}</Project>
+      <Name>CodeDonut.Judger</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

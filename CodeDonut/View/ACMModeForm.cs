@@ -13,7 +13,7 @@ using System.Timers;
 
 namespace CodeDonut
 {
-    struct JudgeResult
+    struct JudgeResult2
     {
         public bool AnwserIsTrue;
         public int TimeUsed;
@@ -158,7 +158,7 @@ namespace CodeDonut
                 Int32.TryParse(textBox_TimeLimit.Text, out timeLimit);
                 process.WaitForExit();
 
-                JudgeResult judgeResult;
+                JudgeResult2 judgeResult;
                 judgeResult.AnwserIsTrue = JudgeAnswer(textBox_OutPut.Text, runResult);
                 judgeResult.ExitCode = process.ExitCode;
                 judgeResult.TimeUsed = (int)(DateTime.Now - process.StartTime).TotalMilliseconds;
@@ -206,7 +206,7 @@ namespace CodeDonut
 
         private void FinishJudge(RunWorkerCompletedEventArgs e)
         {
-            JudgeResult judgeResult = (JudgeResult)e.Result;
+            JudgeResult2 judgeResult = (JudgeResult2)e.Result;
 
             if (judgeResult.AnwserIsTrue)
             {

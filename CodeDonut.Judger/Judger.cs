@@ -12,7 +12,7 @@ namespace CodeDonut.Judger
     {
         public string FileName { get; set; }
         public int TimeLimit { get; set; }
-        private Process NowProcess { get; set; }
+        private Process CurrentProcess { get; set; }
         public Judger(string fileName, int timeLimit = 1000)
         {
             FileName = fileName;
@@ -22,7 +22,7 @@ namespace CodeDonut.Judger
         public JudgeResult Judge(string input, string output, string testCaseName = "")
         {
             Process process = new Process();
-            NowProcess = process;
+            CurrentProcess = process;
 
             RuntimeMonitor runtimeMonitor = new RuntimeMonitor(process, TimeLimit);
             runtimeMonitor.Start();
@@ -68,11 +68,10 @@ namespace CodeDonut.Judger
                 return judgeResult;
             }
 
-            
-            if(string.IsNullOrEmpty(output))//测试数据无输出数据，将本次运行作为输出数据
+            judgeResult.OutPut = programOutput;
+            if (string.IsNullOrEmpty(output))//测试数据无输出数据，将本次运行作为输出数据
             {
                 judgeResult.Result = ResultCode.OutPut;
-                judgeResult.OutPut = programOutput;
             }
             else//有测试输出
             {
