@@ -17,7 +17,7 @@ namespace CodeDonut.Judger
         private Timer _timer;
         public RuntimeMonitor(Process process, int timeLimit = 1000)
         {
-            _timer = new Timer(20);
+            _timer = new Timer(10);
             RunProcess = process;
             TimeLimit = timeLimit;
 
