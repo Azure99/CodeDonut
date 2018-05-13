@@ -75,9 +75,14 @@ namespace CodeDonut.Judger
             }
             else//有测试输出
             {
-                if (!JudgeAnswer(output, programOutput))
+                int res = JudgeAnswer(output, programOutput);
+                if (res == 1)
                 {
                     judgeResult.Result = ResultCode.WrongAnswer;
+                }
+                else if(res == 2)
+                {
+                    judgeResult.Result = ResultCode.PresentationError;
                 }
             }
             
@@ -125,21 +130,38 @@ namespace CodeDonut.Judger
 
         }
 
-        public bool JudgeAnswer(string trueAnswer, string outputAnswer)
+        /// <returns>0AC-1WA-2PE</returns>
+        public int JudgeAnswer(string trueAnswer, string outputAnswer)
         {
             if(trueAnswer == outputAnswer)
             {
-                return true;
+                return 0;
             }
 
             trueAnswer = trueAnswer.Replace("\r\n", "\n").Replace("\r", "\n");
             outputAnswer = outputAnswer.Replace("\r\n", "\n").Replace("\r", "\n");
             if(trueAnswer == outputAnswer)
             {
-                return true;
+                return 0;
+            }
+
+            string[] trueArr = trueAnswer.Split(new char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] outputArr = outputAnswer.Split(new char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
+            if(trueArr.Length != outputArr.Length)
+            {
+                return 1;
+            }
+
+            for (int i = 0; i < trueArr.Length; i++) 
+            {
+                if(trueArr[i].TrimEnd() != outputArr[i].TrimEnd())
+                {
+                    return 1;
+                }
             }
             
-            return false;
+            return 2;
         }
     }
 }

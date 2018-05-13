@@ -13,6 +13,7 @@ namespace CodeDonut.Judger
         RuntimeError = 2,
         TimeLimitExceeded = 3,
         OutPut = 4,
-        //Interrupted = 5
+        //Interrupted = 5,
+        PresentationError = 6
     }
 }
