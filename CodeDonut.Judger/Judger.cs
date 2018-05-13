@@ -98,10 +98,11 @@ namespace CodeDonut.Judger
             process.StartInfo.RedirectStandardOutput = true;
             process.StartInfo.RedirectStandardError = true;
 
+            input = input.Replace("\r\n", "\n").Replace("\r", "\n");
+
             process.Start();
 
-            process.StandardInput.Write(Regex.Replace(input, "\r\n|\r|\n", "\n"));
-            //process.StandardInput.Write("\n");
+            process.StandardInput.WriteLine(input);
             process.StandardInput.Close();
 
             string output = process.StandardOutput.ReadToEnd();
