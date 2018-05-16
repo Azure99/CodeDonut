@@ -101,6 +101,7 @@ namespace CodeDonut.Judger
             input = input.Replace("\r\n", "\n").Replace("\r", "\n");
 
             process.Start();
+            process.PriorityClass = ProcessPriorityClass.RealTime;
 
             process.StandardInput.WriteLine(input);
             process.StandardInput.Close();
