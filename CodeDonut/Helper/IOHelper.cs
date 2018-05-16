@@ -101,7 +101,11 @@ namespace CodeDonut
         /// <returns></returns>
         public static string GetBaseAbsolutePath(string path)
         {
-            bool isAbsolutePath = path.IndexOf(":") == -1;
+            if(path.IndexOf(":") != -1)
+            {
+                return path;
+            }
+
             if (path.StartsWith("\\"))
             {
                 path = path.Substring(1, path.Length - 1);
