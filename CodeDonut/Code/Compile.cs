@@ -106,9 +106,13 @@ namespace CodeDonut
                 compiler = Config.C_Compiler;
                 args = Config.C_Args;
             }
+
+            compiler = IOHelper.GetBaseAbsolutePath(compiler);
+            string workDir = System.IO.Path.GetDirectoryName(compiler);
+
             filePath = "\"" + filePath + "\"";//参数中的路径要用""，否则会被作为参数分隔
             args += " " + filePath + " -o " + filePath + ".exe";
-            return ProcessHelper.RunProcessWithNoWindow(compiler, args, true, true);
+            return ProcessHelper.RunProcessWithNoWindow(compiler, args, workDir, true);
         }
     }
 }
