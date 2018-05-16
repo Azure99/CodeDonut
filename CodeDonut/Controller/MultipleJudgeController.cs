@@ -29,7 +29,7 @@ namespace CodeDonut
             TimeLimit = timeLimit;
             _fileIndex = 0;
 
-            _judger = new Judger.Judger(programPath, timeLimit);
+            _judger = new Judger.Judger(programPath, timeLimit, Path.GetDirectoryName(Config.Cpp_Compiler));
 
             _inputFiles = Directory.GetFiles(inputPath);
             _outputFiles = Directory.GetFiles(outputPath);
@@ -76,10 +76,6 @@ namespace CodeDonut
             {
                 return new JudgeResult { TestCaseName = testCaseName, Result = ResultCode.JudgeFailed };
             }
-
-            System.Diagnostics.Debug.WriteLine("input:" + input);
-            System.Diagnostics.Debug.WriteLine("output:" + outputPath);
-            System.Diagnostics.Debug.WriteLine(TimeLimit);
 
             return _judger.Judge(input, output, testCaseName);
         }

@@ -11,12 +11,14 @@ namespace CodeDonut.Judger
     public class Judger
     {
         public string FileName { get; set; }
+        public string WorkingDirectory { get; set; }
         public int TimeLimit { get; set; }
         private Process CurrentProcess { get; set; }
-        public Judger(string fileName, int timeLimit = 1000)
+        public Judger(string fileName, int timeLimit = 1000, string workingDirectory = "")
         {
             FileName = fileName;
             TimeLimit = timeLimit;
+            WorkingDirectory = workingDirectory;
         }
 
         public JudgeResult Judge(string input, string output, string testCaseName = "")
@@ -92,11 +94,14 @@ namespace CodeDonut.Judger
         public string Run(Process process, string input)
         {
             process.StartInfo.FileName = FileName;
+            process.StartInfo.WorkingDirectory = WorkingDirectory;
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.CreateNoWindow = true;
             process.StartInfo.RedirectStandardInput = true;
             process.StartInfo.RedirectStandardOutput = true;
             process.StartInfo.RedirectStandardError = true;
+
+            Debug.WriteLine(process.StartInfo.WorkingDirectory);
 
             input = input.Replace("\r\n", "\n").Replace("\r", "\n");
 
