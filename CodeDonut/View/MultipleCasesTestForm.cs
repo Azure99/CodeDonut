@@ -139,6 +139,12 @@ namespace CodeDonut
                 return false;
             }
 
+            if(textBox_InputPath.Text == textBox_OutputPath.Text)
+            {
+                MessageBox.Show(I18N.GetValue("Input equals Output!"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+
             if(!int.TryParse(textBox_TimeLimit.Text, out int timeLimit))
             {
                 MessageBox.Show(I18N.GetValue("Invalid time limit!"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);

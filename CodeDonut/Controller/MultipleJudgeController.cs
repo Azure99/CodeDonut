@@ -77,7 +77,14 @@ namespace CodeDonut
                 return new JudgeResult { TestCaseName = testCaseName, Result = ResultCode.JudgeFailed };
             }
 
-            return _judger.Judge(input, output, testCaseName);
+            JudgeResult jr = _judger.Judge(input, output, testCaseName);
+
+            if(jr.Result == ResultCode.OutPut)
+            {
+                File.WriteAllText(outputPathProfix + ".out", jr.OutPut);
+            }
+
+            return jr;
         }
     }
 }
