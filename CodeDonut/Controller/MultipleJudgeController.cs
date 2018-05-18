@@ -29,7 +29,7 @@ namespace CodeDonut
             TimeLimit = timeLimit;
             _fileIndex = 0;
 
-            _judger = new Judger.Judger(programPath, timeLimit, Path.GetDirectoryName(Config.Cpp_Compiler));
+            _judger = new Judger.Judger(programPath, timeLimit);
 
             _inputFiles = Directory.GetFiles(inputPath);
             _outputFiles = Directory.GetFiles(outputPath);
