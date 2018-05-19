@@ -65,6 +65,7 @@
             this.runToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buildAndRunToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.runInACMModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.multipleCasesTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bugReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip_Main = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel_File = new System.Windows.Forms.ToolStripStatusLabel();
@@ -351,7 +352,8 @@
             this.buildToolStripMenuItem,
             this.runToolStripMenuItem,
             this.buildAndRunToolStripMenuItem,
-            this.runInACMModeToolStripMenuItem});
+            this.runInACMModeToolStripMenuItem,
+            this.multipleCasesTestToolStripMenuItem});
             this.buildTextToolStripMenuItem.Name = "buildTextToolStripMenuItem";
             this.buildTextToolStripMenuItem.Size = new System.Drawing.Size(57, 24);
             this.buildTextToolStripMenuItem.Text = "Build";
@@ -360,7 +362,7 @@
             // 
             this.buildToolStripMenuItem.Name = "buildToolStripMenuItem";
             this.buildToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F7;
-            this.buildToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.buildToolStripMenuItem.Size = new System.Drawing.Size(221, 26);
             this.buildToolStripMenuItem.Text = "Build";
             this.buildToolStripMenuItem.Click += new System.EventHandler(this.buildToolStripMenuItem_Click);
             // 
@@ -368,7 +370,7 @@
             // 
             this.runToolStripMenuItem.Name = "runToolStripMenuItem";
             this.runToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F8;
-            this.runToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.runToolStripMenuItem.Size = new System.Drawing.Size(221, 26);
             this.runToolStripMenuItem.Text = "Run";
             this.runToolStripMenuItem.Click += new System.EventHandler(this.runToolStripMenuItem_Click);
             // 
@@ -376,16 +378,23 @@
             // 
             this.buildAndRunToolStripMenuItem.Name = "buildAndRunToolStripMenuItem";
             this.buildAndRunToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F9;
-            this.buildAndRunToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.buildAndRunToolStripMenuItem.Size = new System.Drawing.Size(221, 26);
             this.buildAndRunToolStripMenuItem.Text = "Build And Run";
             this.buildAndRunToolStripMenuItem.Click += new System.EventHandler(this.buildAndRunToolStripMenuItem_Click);
             // 
             // runInACMModeToolStripMenuItem
             // 
             this.runInACMModeToolStripMenuItem.Name = "runInACMModeToolStripMenuItem";
-            this.runInACMModeToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.runInACMModeToolStripMenuItem.Size = new System.Drawing.Size(221, 26);
             this.runInACMModeToolStripMenuItem.Text = "Run in ACM Mode";
             this.runInACMModeToolStripMenuItem.Click += new System.EventHandler(this.runInACMModeToolStripMenuItem_Click);
+            // 
+            // multipleCasesTestToolStripMenuItem
+            // 
+            this.multipleCasesTestToolStripMenuItem.Name = "multipleCasesTestToolStripMenuItem";
+            this.multipleCasesTestToolStripMenuItem.Size = new System.Drawing.Size(221, 26);
+            this.multipleCasesTestToolStripMenuItem.Text = "MultipleCases Test";
+            this.multipleCasesTestToolStripMenuItem.Click += new System.EventHandler(this.multipleCasesTestToolStripMenuItem_Click);
             // 
             // bugReportToolStripMenuItem
             // 
@@ -637,6 +646,7 @@
             this.fastColoredTextBox_Main.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.fastColoredTextBox_Main.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.fastColoredTextBox_Main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fastColoredTextBox_Main.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.fastColoredTextBox_Main.IsReplaceMode = false;
             this.fastColoredTextBox_Main.Location = new System.Drawing.Point(0, 55);
             this.fastColoredTextBox_Main.Name = "fastColoredTextBox_Main";
@@ -863,6 +873,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton_BuildAndRun;
         private System.Windows.Forms.ToolStripMenuItem bugReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem runInACMModeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem multipleCasesTestToolStripMenuItem;
     }
 }
 

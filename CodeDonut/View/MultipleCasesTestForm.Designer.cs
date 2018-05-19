@@ -85,7 +85,6 @@
             this.textBox_InputPath.Name = "textBox_InputPath";
             this.textBox_InputPath.Size = new System.Drawing.Size(455, 25);
             this.textBox_InputPath.TabIndex = 4;
-            this.textBox_InputPath.Text = "C:\\Users\\96152\\Downloads\\Compressed\\1058\\input";
             // 
             // textBox_OutputPath
             // 
@@ -93,7 +92,6 @@
             this.textBox_OutputPath.Name = "textBox_OutputPath";
             this.textBox_OutputPath.Size = new System.Drawing.Size(455, 25);
             this.textBox_OutputPath.TabIndex = 5;
-            this.textBox_OutputPath.Text = "C:\\Users\\96152\\Downloads\\Compressed\\1058\\output";
             // 
             // button_SelectProgram
             // 
@@ -140,7 +138,7 @@
             this.textBox_TimeLimit.Name = "textBox_TimeLimit";
             this.textBox_TimeLimit.Size = new System.Drawing.Size(100, 25);
             this.textBox_TimeLimit.TabIndex = 10;
-            this.textBox_TimeLimit.Text = "2000";
+            this.textBox_TimeLimit.Text = "5000";
             // 
             // label_MS
             // 

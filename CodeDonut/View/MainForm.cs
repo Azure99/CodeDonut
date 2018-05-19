@@ -18,13 +18,14 @@ namespace CodeDonut
         private FindForm _findForm;
         private ReplaceForm _replaceForm;
         private ACMModeForm _acmModeForm;
+        private MultipleCasesTestForm _multipleCasesTestForm;
         public static CompileErrorInfoForm FormCompileErrorInfo;
         public static FastColoredTextBox MainFastColoredTextBox;//主代码编辑区
         public static MainForm FormMain;
 
         private string[] _args;//启动参数
 
-        private string currenFilePath;//当前编辑的源文件名
+        private string currentFilePath;//当前编辑的源文件名
 
         public MainForm(string[] args)
         {
@@ -34,12 +35,6 @@ namespace CodeDonut
         private void Form_Main_Load(object sender, EventArgs e)
         {
             Init();
-            //Test();
-        }
-
-        private void Test()
-        {
-            new MultipleCasesTestForm(@"D:\Program Files (x86)\CodeDonut_Beta0.05\SourceFile\unnamed8.cpp.exe").Show();
         }
 
         private void Form_Main_FormClosing(object sender, FormClosingEventArgs e)
@@ -116,7 +111,7 @@ namespace CodeDonut
 
             fastColoredTextBox_Main.Text = IOHelper.ReadAllTextWithDfEncode(path);
             this.Text = "CodeDonut - " + path;
-            currenFilePath = path;
+            currentFilePath = path;
         }
         private void InitEditor(bool typeIsCpp)//初始化代码高亮补全 false-C, trueC++
         {
@@ -128,13 +123,13 @@ namespace CodeDonut
 
         private bool Exit()//退出
         {
-            if (fastColoredTextBox_Main.Text != IOHelper.ReadAllTextWithDfEncode(currenFilePath))
+            if (fastColoredTextBox_Main.Text != IOHelper.ReadAllTextWithDfEncode(currentFilePath))
             {
                 if (MessageBox.Show(I18N.GetValue("Do you want to exit?"), "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     if (MessageBox.Show(I18N.GetValue("Do you want to save changes?"), "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        if (!IOHelper.WriteAllTextWithDfEncode(currenFilePath, fastColoredTextBox_Main.Text))
+                        if (!IOHelper.WriteAllTextWithDfEncode(currentFilePath, fastColoredTextBox_Main.Text))
                         {
                             MessageBox.Show(I18N.GetValue("Can't write source file."), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return false;
@@ -146,7 +141,7 @@ namespace CodeDonut
                     return false;
                 }
             }
-            IOHelper.WriteAllTextWithDfEncode("LastOpen.dat", currenFilePath);
+            IOHelper.WriteAllTextWithDfEncode("LastOpen.dat", currentFilePath);
 
             Config.MainFormHeight = this.Height.ToString();
             Config.MainFormWidth = this.Width.ToString();
@@ -307,7 +302,7 @@ namespace CodeDonut
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(!IOHelper.WriteAllTextWithDfEncode(currenFilePath,fastColoredTextBox_Main.Text))
+            if(!IOHelper.WriteAllTextWithDfEncode(currentFilePath,fastColoredTextBox_Main.Text))
             {
                 MessageBox.Show("Can't write source file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -315,7 +310,7 @@ namespace CodeDonut
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string path = FileManager.SaveSourceFileAsDialog(currenFilePath);
+            string path = FileManager.SaveSourceFileAsDialog(currentFilePath);
             if (String.IsNullOrEmpty(path))
             {
                 return;
@@ -325,7 +320,7 @@ namespace CodeDonut
             {
                 MessageBox.Show("Can't write source file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            currenFilePath = path;
+            currentFilePath = path;
             this.Text = "CodeDonut - " + path;
         }
 
@@ -336,21 +331,21 @@ namespace CodeDonut
 
         private void buildToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            IOHelper.WriteAllTextWithDfEncode(currenFilePath, fastColoredTextBox_Main.Text);
-            Compile.CompileFile(currenFilePath);
+            IOHelper.WriteAllTextWithDfEncode(currentFilePath, fastColoredTextBox_Main.Text);
+            Compile.CompileFile(currentFilePath);
         }
 
         private void runToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ProcessHelper.StartProcessIgnoreException(currenFilePath + ".exe");
+            ProcessHelper.StartProcessIgnoreException(currentFilePath + ".exe");
         }
 
         private void buildAndRunToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            IOHelper.WriteAllTextWithDfEncode(currenFilePath, fastColoredTextBox_Main.Text);
-            if (Compile.CompileFile(currenFilePath))
+            IOHelper.WriteAllTextWithDfEncode(currentFilePath, fastColoredTextBox_Main.Text);
+            if (Compile.CompileFile(currentFilePath))
             {
-                ProcessHelper.StartProcessIgnoreException(currenFilePath + ".exe");
+                ProcessHelper.StartProcessIgnoreException(currentFilePath + ".exe");
             }
         }
         private void bugReportToolStripMenuItem_Click(object sender, EventArgs e)
@@ -375,8 +370,16 @@ namespace CodeDonut
         {
             if (_acmModeForm == null || _acmModeForm.IsDisposed)
             {
-                _acmModeForm = new ACMModeForm(currenFilePath + ".exe");
+                _acmModeForm = new ACMModeForm(currentFilePath + ".exe");
                 _acmModeForm.Show();
+            }
+        }
+        private void multipleCasesTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_multipleCasesTestForm == null || _multipleCasesTestForm.IsDisposed)
+            {
+                _multipleCasesTestForm = new MultipleCasesTestForm(currentFilePath + ".exe");
+                _multipleCasesTestForm.Show();
             }
         }
 

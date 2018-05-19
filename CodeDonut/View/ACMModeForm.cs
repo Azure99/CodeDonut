@@ -112,7 +112,6 @@ namespace CodeDonut
             System.Timers.Timer timer = new System.Timers.Timer(20);
             timer.Elapsed += (object t_sender, System.Timers.ElapsedEventArgs t_e) =>
             {
-                Debug.WriteLine(memoryUsed);
                 try
                 {
                     if (process.HasExited)

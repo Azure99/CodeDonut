@@ -101,8 +101,6 @@ namespace CodeDonut.Judger
             process.StartInfo.RedirectStandardOutput = true;
             process.StartInfo.RedirectStandardError = true;
 
-            Debug.WriteLine(process.StartInfo.WorkingDirectory);
-
             input = input.Replace("\r\n", "\n").Replace("\r", "\n");
 
             process.Start();
