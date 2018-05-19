@@ -31,6 +31,7 @@ Build=构建
 Run=运行
 Build And Run=构建并运行
 Run in ACM Mode=ACM运行模式
+MultipleCases Test=多例测试模式
 
 Bug Report=错误反馈
 
@@ -71,7 +72,7 @@ You must select something before replace!=在替换之前您必须选中一些�
 Compile Information=编译信息
 
 
-##ACMMode
+##Form_ACMMode
 Path:=路径:
 InPut:=输入:
 Time Limit:=时间限制:
@@ -79,6 +80,28 @@ OutPut:=输出:
 Run=运行:
 Judging...=评测中:
 Cancel=取消:
+
+##Message
+Program not found!=程序不存在!
+Input folder not found!=输入数据文件夹不存在!
+Output folder not found!=输出数据文件夹不存在!
+Input equals Output!=输入文件夹与输出文件夹相同!
+Invalid time limit!=无效的时间限制!
+
+##Form_MultipleCasesTest
+Multiple Cases Test=多例测试模式
+Program Path:=程序路径
+Input Path:=输入路径:
+Output Path:=输出路径
+Select=选择
+Start Judge=开始评测
+
+#Message
+MultipleCasesTest is a function for ACMer and  OIer.=多例测试是专为ACMer/OIer开发的功能
+You can use it to test your program like Online Judge or produce test data. And it can show judge details for you.=您可以用它来测试你的程序(就像OJ那样)，或者生成测试数据。CodeDonut会向你展示所有的评测细节。
+1.Test data should be saved in folder.=1.测试数据应该保存在文件夹中
+2.CodeDonut will write the runtime output to out file if output file not in folder.=2;若没有输出数据，CodeDonut会将程序运行的输出写入到输出文件夹
+
 
 ##Message
 Compile successful=编译成功

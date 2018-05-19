@@ -23,6 +23,7 @@ namespace CodeDonut
 
         private void MultipleCasesTestForm_Load(object sender, EventArgs e)
         {
+            I18N.InitControls(this);
             _resultForm = new MultipleCasesResultForm();
         }
 
@@ -67,6 +68,18 @@ namespace CodeDonut
             
             backgroundWorker_Main.RunWorkerAsync();
             button_StartJudge.Enabled = false;
+        }
+
+        private void button_FAQ_Click(object sender, EventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(I18N.GetValue("MultipleCasesTest is a function for ACMer and  OIer."));
+            sb.AppendLine(I18N.GetValue("You can use it to test your program like Online Judge or produce test data. And it can show judge details for you."));
+            sb.AppendLine("");
+            sb.AppendLine("Tips:");
+            sb.AppendLine(I18N.GetValue("1.Test data should be saved in folder."));
+            sb.AppendLine(I18N.GetValue("2.CodeDonut will write the runtime output to out file if output file not in folder."));
+            MessageBox.Show(sb.ToString(), "FAQ", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         //判题核心

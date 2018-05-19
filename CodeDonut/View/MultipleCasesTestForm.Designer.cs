@@ -157,6 +157,7 @@
             this.button_FAQ.TabIndex = 12;
             this.button_FAQ.Text = "FAQ";
             this.button_FAQ.UseVisualStyleBackColor = true;
+            this.button_FAQ.Click += new System.EventHandler(this.button_FAQ_Click);
             // 
             // button_StartJudge
             // 
