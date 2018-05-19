@@ -8,10 +8,10 @@ namespace CodeDonut
 {
     class Config
     {
-        public static string Cpp_Compiler = @"MinGW64\bin\x86_64-w64-mingw32-g++.exe";//C++编译器位置
+        public static string Cpp_Compiler = @"MinGW\bin\g++.exe";//C++编译器位置
         public static string Cpp_Args = @"-Wall -o2 -std=c++11 -m32";//C++编译参数
 
-        public static string C_Compiler = @"MinGW64\bin\x86_64-w64-mingw32-gcc.exe";//C编译器位置
+        public static string C_Compiler = @"MinGW\bin\gcc.exe";//C编译器位置
         public static string C_Args = @"-Wall -o2 -m32";//C编译参数
 
         public static string Cpp_AutoComplete = CodeDonut.Properties.Resources.Cpp_AutoComplete;//C++代码补全数据
