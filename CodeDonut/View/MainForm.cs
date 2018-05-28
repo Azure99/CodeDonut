@@ -119,6 +119,7 @@ namespace CodeDonut
             string autoCompleteRules = typeIsCpp ? Config.Cpp_AutoComplete : Config.C_AutoComplete;
             HighlightingCode.InitHighlightingCode(highLightingRules);
             AutoComplete.InitAutoComplete(autoCompleteRules, acMenu, fastColoredTextBox_Main, imageList_ACIco);
+            AutoAddFragment.Init(fastColoredTextBox_Main);
         }
 
         private bool Exit()//退出

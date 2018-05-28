@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\AutoAddFragment.cs" />
     <Compile Include="Controller\I18N.cs" />
     <Compile Include="Code\Compile.cs" />
     <Compile Include="Controller\MultipleJudgeController.cs" />
