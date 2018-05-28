@@ -19,13 +19,13 @@ namespace CodeDonut
         private ReplaceForm _replaceForm;
         private ACMModeForm _acmModeForm;
         private MultipleCasesTestForm _multipleCasesTestForm;
-        public static CompileErrorInfoForm FormCompileErrorInfo;
-        public static FastColoredTextBox MainFastColoredTextBox;//主代码编辑区
-        public static MainForm FormMain;
+        public static CompileErrorInfoForm FormCompileErrorInfo { get; set; }
+        public static FastColoredTextBox FCTB { get; set; }
+        public static MainForm FormMain { get; set; }
 
         private string[] _args;//启动参数
 
-        private string currentFilePath;//当前编辑的源文件名
+        private string currentFilePath;//当前编辑的源文件路径
 
         public MainForm(string[] args)
         {
@@ -52,7 +52,7 @@ namespace CodeDonut
         /// </summary>
         private void Init()
         {
-            MainFastColoredTextBox = fastColoredTextBox_Main;
+            FCTB = fastColoredTextBox_Main;
             acMenu = new AutocompleteMenu(fastColoredTextBox_Main);
 
             FormCompileErrorInfo = new CompileErrorInfoForm();
@@ -389,17 +389,6 @@ namespace CodeDonut
         private void Form_Main_TextChanged(object sender, EventArgs e)
         {
             toolStripStatusLabel_FileShow.Text = IOHelper.GetFileName(this.Text);
-        }
-
-
-        private void fastColoredTextBox_Main_SelectionChangedDelayed(object sender, EventArgs e)
-        {
-
-        }
-
-        private void fastColoredTextBox_Main_TextChangedDelayed(object sender, TextChangedEventArgs e)
-        {
-
         }
 
         private void fastColoredTextBox_Main_TextChanged(object sender, TextChangedEventArgs e)

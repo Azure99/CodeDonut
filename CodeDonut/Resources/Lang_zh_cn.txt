@@ -42,7 +42,7 @@ Save File=保存文件
 #Message
 Do you want to exit?=您想要退出吗?
 Do you want to save changes?=您想要保存更改吗?
-Can't write source file.=无法写出源文件
+Can't write source file.=无法写出源文件!
 
 
 ##Form_Find
@@ -54,6 +54,7 @@ Count=计数
 
 #Message
 You must input something that you want to find!=您必须输入您想要搜索的内容!
+Can't find=无法找到!
 
 
 ##Form_Replace

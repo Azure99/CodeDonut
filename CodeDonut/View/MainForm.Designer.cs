@@ -658,8 +658,6 @@
             this.fastColoredTextBox_Main.Zoom = 100;
             this.fastColoredTextBox_Main.TextChanged += new System.EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.fastColoredTextBox_Main_TextChanged);
             this.fastColoredTextBox_Main.SelectionChanged += new System.EventHandler(this.fastColoredTextBox_Main_SelectionChanged);
-            this.fastColoredTextBox_Main.TextChangedDelayed += new System.EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.fastColoredTextBox_Main_TextChangedDelayed);
-            this.fastColoredTextBox_Main.SelectionChangedDelayed += new System.EventHandler(this.fastColoredTextBox_Main_SelectionChangedDelayed);
             // 
             // contextMenuStrip_Main
             // 

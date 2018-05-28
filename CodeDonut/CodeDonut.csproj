@@ -55,6 +55,7 @@
     <Compile Include="Controller\I18N.cs" />
     <Compile Include="Code\Compile.cs" />
     <Compile Include="Controller\MultipleJudgeController.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="View\MultipleCasesTestForm.cs">
       <SubType>Form</SubType>
     </Compile>

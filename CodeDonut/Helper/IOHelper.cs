@@ -47,7 +47,6 @@ namespace CodeDonut
                 StreamWriter sw = new StreamWriter(fs, Encoding.Default);
                 sw.Write(text);
                 sw.Close();
-                fs.Close();
                 return true;
             }
             catch

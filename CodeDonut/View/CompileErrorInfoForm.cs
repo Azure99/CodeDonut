@@ -85,9 +85,9 @@ namespace CodeDonut
                 Int32.TryParse(lvi.Text, out line);
                 line--;
                 //Form_Main.fastColoredTextBox.Selection.Start = new FastColoredTextBoxNS.Place(Form_Main.fastColoredTextBox.Lines[line].Length, line);
-                MainForm.MainFastColoredTextBox.Selection.Start = new FastColoredTextBoxNS.Place(0, line);
-                MainForm.MainFastColoredTextBox.SelectionLength = MainForm.MainFastColoredTextBox.Lines[line].Length;
-                MainForm.MainFastColoredTextBox.Focus();
+                MainForm.FCTB.Selection.Start = new FastColoredTextBoxNS.Place(0, line);
+                MainForm.FCTB.SelectionLength = MainForm.FCTB.Lines[line].Length;
+                MainForm.FCTB.Focus();
             }
         }
 

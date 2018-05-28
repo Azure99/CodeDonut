@@ -8,12 +8,12 @@ using System.Windows.Forms;
 
 namespace CodeDonut
 {
-    class AutoComplete
+    static class AutoComplete
     {
         /// <summary>
         /// 初始化代码补全
         /// </summary>
-        /// <param name="autoCompleteRules">代码补全规则信息</param>
+        /// <param name="autoCompleteRules">代码补全规则</param>
         /// <param name="acMenu">自动完成菜单</param>
         /// <param name="fctb">FCTB编辑框</param>
         /// <param name="imageList">图标列表</param>

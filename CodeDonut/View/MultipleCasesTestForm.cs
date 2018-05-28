@@ -13,7 +13,7 @@ namespace CodeDonut
 {
     public partial class MultipleCasesTestForm : Form
     {
-        MultipleCasesResultForm _resultForm;
+        private MultipleCasesResultForm _resultForm;
         public MultipleCasesTestForm(string programPath)
         {
             InitializeComponent();
