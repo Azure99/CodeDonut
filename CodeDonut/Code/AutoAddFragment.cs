@@ -11,6 +11,8 @@ namespace CodeDonut
         enum InsertFlag
         {
             No,
+            DoubleQuotationMarks,
+            InsertingDoubleQuotationMarks,
             Obrace,
             LeftSquareBracket,
             LeftBracket,
@@ -30,7 +32,24 @@ namespace CodeDonut
         }
         public static void OnTextChanging(object sender, TextChangingEventArgs e)
         {
-            if (e.InsertingText == "{")
+
+            if (e.InsertingText == "\"" && _insertingFlag == InsertFlag.No)
+            {
+                Range range = _fctb.Selection;
+                if (range.Length == 0 && range.CharBeforeStart == '\"' && range.CharAfterStart == '\"')
+                {
+                    Place place = range.Start;
+                    place.iChar++;
+                    _fctb.Selection.Start = place;
+                    e.Cancel = true;
+                }
+                else
+                {
+                    _insertingFlag = InsertFlag.DoubleQuotationMarks;
+                }
+            }
+
+            else if (e.InsertingText == "{")
             {
                 _insertingFlag = InsertFlag.Obrace;
             }
@@ -128,6 +147,15 @@ namespace CodeDonut
             if (_insertingFlag == InsertFlag.No)
             {
                 return;
+            }
+            else if(_insertingFlag == InsertFlag.DoubleQuotationMarks)
+            {
+                _insertingFlag = InsertFlag.InsertingDoubleQuotationMarks;
+                _fctb.InsertText("\"");
+                Place place = _fctb.Selection.Start;
+                place.iChar--;
+                _fctb.Selection.Start = place;
+                _insertingFlag = InsertFlag.No;
             }
             else if (_insertingFlag == InsertFlag.Obrace)
             {
