@@ -13,7 +13,7 @@ namespace CodeDonut.Judger
         public string FileName { get; set; }
         public string WorkingDirectory { get; set; }
         public int TimeLimit { get; set; }
-        private Process CurrentProcess { get; set; }
+        public Process CurrentProcess { get; set; }
         public Judger(string fileName, int timeLimit = 1000, string workingDirectory = "")
         {
             FileName = fileName;

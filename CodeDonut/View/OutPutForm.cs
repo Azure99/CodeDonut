@@ -11,10 +11,6 @@ namespace CodeDonut
 {
     public partial class OutPutForm : Form
     {
-        private delegate void ClearHandler();
-        private delegate void SetTextHandler(string text);
-        private delegate void ShowOrCloseFormHandler();
-
         public OutPutForm()
         {
             InitializeComponent();
@@ -27,60 +23,28 @@ namespace CodeDonut
 
         public void Clear()
         {
-            if (this.textBox_OutPut.InvokeRequired)
-            {
-                ClearHandler clear = new ClearHandler(Clear);
-                this.Invoke(clear);
-            }
-            else
-            {
-                textBox_OutPut.Text = "";
-            }
+            textBox_OutPut.Text = "";
         }
         public void SetText(string text)
         {
-            if(this.textBox_OutPut.InvokeRequired)
-            {
-                SetTextHandler setText = new SetTextHandler(SetText);
-                this.Invoke(setText, new object[] { text });
-            }
-            else
-            {
-                textBox_OutPut.Text = text;
-            }
+            textBox_OutPut.Text = text;
         }
 
         public void ShowForm()
         {
-            if(this.InvokeRequired)
+            if (textBox_OutPut.Text.Length > 0)
             {
-                ShowOrCloseFormHandler show = new ShowOrCloseFormHandler(ShowForm);
-                this.Invoke(show);
+                textBox_OutPut.SelectionStart = textBox_OutPut.Text.Length - 1;
             }
-            else
-            {
-                if (textBox_OutPut.Text.Length > 0) 
-                {
-                    textBox_OutPut.SelectionStart = textBox_OutPut.Text.Length - 1;
-                }
-                
-                this.Visible = true;
-                this.Focus();
-                textBox_OutPut.ScrollToCaret();
-            }
+
+            this.Visible = true;
+            this.Focus();
+            textBox_OutPut.ScrollToCaret();
         }
 
         public void CloseForm()
         {
-            if (this.InvokeRequired)
-            {
-                ShowOrCloseFormHandler close = new ShowOrCloseFormHandler(CloseForm);
-                this.Invoke(close);
-            }
-            else
-            {
-                this.Close();
-            }
+            this.Close();
         }
 
         public string ReadAllLine()
