@@ -410,6 +410,33 @@ namespace CodeDonut
             HighlightingCode.HighlightingSameWords(fastColoredTextBox_Main);
         }
 
+
+        private void fastColoredTextBox_Main_KeyPressing(object sender, KeyPressEventArgs e)
+        {
+            //若当前行全为空格，且用户欲删除，直接全选提升删除体验
+            if (e.KeyChar == (char)Keys.Back && FCTB.Selection.Length == 0)
+            {
+                Place place = FCTB.Selection.Start;
+                string line = FCTB.Lines[place.iLine];
+
+                if (line.Length == 0 || place.iChar == 0)
+                {
+                    return;
+                }
+
+                for (int i = 0; i < place.iChar; i++) //判断此行是否全为空格
+                {
+                    if (line[i] != ' ' && line[i] != '\t')
+                    {
+                        return;
+                    }
+                }
+
+                FCTB.Selection = new Range(FCTB, 0, place.iLine, place.iChar, place.iLine);
+                e.Handled = true;
+            }
+        }
+
         #endregion
 
         #region 工具栏事件
@@ -468,6 +495,5 @@ namespace CodeDonut
             buildAndRunToolStripMenuItem_Click(null, null);
         }
         #endregion
-
     }
 }

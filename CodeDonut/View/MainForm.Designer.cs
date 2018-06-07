@@ -646,7 +646,6 @@
             this.fastColoredTextBox_Main.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.fastColoredTextBox_Main.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.fastColoredTextBox_Main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fastColoredTextBox_Main.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.fastColoredTextBox_Main.IsReplaceMode = false;
             this.fastColoredTextBox_Main.Location = new System.Drawing.Point(0, 55);
             this.fastColoredTextBox_Main.Name = "fastColoredTextBox_Main";
@@ -658,6 +657,7 @@
             this.fastColoredTextBox_Main.Zoom = 100;
             this.fastColoredTextBox_Main.TextChanged += new System.EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.fastColoredTextBox_Main_TextChanged);
             this.fastColoredTextBox_Main.SelectionChanged += new System.EventHandler(this.fastColoredTextBox_Main_SelectionChanged);
+            this.fastColoredTextBox_Main.KeyPressing += new System.Windows.Forms.KeyPressEventHandler(this.fastColoredTextBox_Main_KeyPressing);
             // 
             // contextMenuStrip_Main
             // 
