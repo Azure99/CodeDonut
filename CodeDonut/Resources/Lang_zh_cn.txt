@@ -43,6 +43,7 @@ Save File=保存文件
 Do you want to exit?=您想要退出吗?
 Do you want to save changes?=您想要保存更改吗?
 Can't write source file.=无法写出源文件!
+Can't creat new file.=无法创建新文件
 
 
 ##Form_Find

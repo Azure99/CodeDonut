@@ -91,9 +91,9 @@ fscanf(^, , )
 fseek(^, , )
 ftell(^)
 fwrite(^, , , )
-getchar(^)
-gets(^)
-getc(^)
+getchar()^
+gets()^
+getc()^
 putchar(^)
 puts(^)
 putc(^, )

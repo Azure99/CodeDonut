@@ -61,7 +61,7 @@ namespace CodeDonut
             string defaultCode = isCpp ? CodeDonut.Properties.Resources.CppDefaultCode : CodeDonut.Properties.Resources.CDefaultCode;
             if (!IOHelper.WriteAllTextWithDfEncode(sfd.FileName, defaultCode)) 
             {
-                MessageBox.Show("Can't creat new file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(I18N.GetValue("Can't creat new file."), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
