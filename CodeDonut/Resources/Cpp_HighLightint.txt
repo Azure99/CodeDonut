@@ -12,4 +12,4 @@ STLmethods===\.\b(assign|at|back|begin|cbegin|cend|clear|count|crbegin|crend|emp
 
 PreprocessingCommand===#\b(include|pragma|if|else|elif|ifndef|ifdef|endif|undef|define|line|error)\b|__[^>]*__
 
-Header===<\b(algorithm|array|cctype|climits|cmath|cstdio|cstdlib|cstring|ctime|fstream|functional|iostream|list|map|queue|set|sstream|stack|string|utility|vector)\b>
+Header===<\b(algorithm|array|cctype|climits|cmath|complex|cstdio|cstdlib|cstring|ctime|fstream|functional|iostream|list|map|queue|set|sstream|stack|string|utility|vector)\b>
