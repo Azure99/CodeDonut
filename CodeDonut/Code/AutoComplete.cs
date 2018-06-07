@@ -20,14 +20,8 @@ namespace CodeDonut
         public static void InitAutoComplete(string autoCompleteRules,AutocompleteMenu acMenu, FastColoredTextBox fctb, ImageList imageList)
         {
             //解析代码补全数据
-            List<string> t_Keywords = GetKeywordList(autoCompleteRules, "Keyword");
-            List<string> t_functions = GetKeywordList(autoCompleteRules, "Functions");
-
-            string[] keywords = new string[t_Keywords.Count + t_functions.Count];
-            t_Keywords.CopyTo(keywords, 0);
-            t_functions.CopyTo(keywords, t_Keywords.Count);
-
-
+            string[] keywords = GetKeywordList(autoCompleteRules, "Keyword").ToArray();
+            string[] functions = GetKeywordList(autoCompleteRules, "Functions").ToArray();
             string[] methods = GetKeywordList(autoCompleteRules, "Methods").ToArray();
             string[] snippets = GetKeywordList(autoCompleteRules, "Snippets").ToArray();
             string[] declarationSnippets = GetKeywordList(autoCompleteRules, "DeclarationSnippets").ToArray();
@@ -49,6 +43,8 @@ namespace CodeDonut
                 items.Add(new MethodAutocompleteItem(item) { ImageIndex = 2 });
             foreach (var item in keywords)
                 items.Add(new AutocompleteItem(item));
+            foreach (var item in functions)
+                items.Add(new SnippetAutocompleteItem(item));
             foreach (var item in headers)
                 items.Add(new HeaderAutocompleteItem(item));
 
@@ -98,7 +94,8 @@ namespace CodeDonut
             return keywordList;
         }
     }
-    
+
+
     class InsertSpaceSnippet : AutocompleteItem
     {
         string pattern;
@@ -201,10 +198,11 @@ namespace CodeDonut
                 Parent.Fragment.tb.DoAutoIndent();
         }
     }
+
     /// <summary>
     /// This autocomplete item appears after #
     /// </summary>
-    public class HeaderAutocompleteItem : AutocompleteItem
+    class HeaderAutocompleteItem : AutocompleteItem
     {
         string firstPart;
         string lowercaseText;

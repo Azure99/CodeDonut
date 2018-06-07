@@ -56,64 +56,64 @@ KeywordEnd;
 
 #####
 Functions===
-scanf(, )
-printf()
+scanf("^", )
+printf("^");
 
-sizeof()
+sizeof(^)
 
-abs()
-ceil()
-fabs()
-floor()
-log()
-log10()
-pow(, )
-sqrt()
+abs(^)
+ceil(^)
+fabs(^)
+floor(^)
+log(^)
+log10(^)
+pow(^, )
+sqrt(^)
 
-strcat(, )
-strchr(, )
-strcmp(, )
-strcpy(, )
-strlen()
-strstr(, )
+strcat(^, )
+strchr(^, )
+strcmp(^, )
+strcpy(^, )
+strlen(^)
+strstr(^, )
 
-clearerr()
-fclose()
-feof()
-fgetc()
-fgets(, , )
-fopen(, )
-fprintf(, )
-fputc(, )
-fputs(, )
-fread(, , , )
-fscanf(, , )
-fseek(, , )
-ftell()
-fwrite(, , , )
-getc()
-getchar()
-gets()
-putc(, )
-putchar()
-puts()
-rename(, )
-rewind()
+clearerr(^)
+fclose(^)
+feof(^)
+fgetc(^)
+fgets(^, , )
+fopen(^, )
+fprintf(^, )
+fputc(^, )
+fputs(^, )
+fread(^, , , )
+fscanf(^, , )
+fseek(^, , )
+ftell(^)
+fwrite(^, , , )
+getchar(^)
+gets(^)
+getc(^)
+putchar(^)
+puts(^)
+putc(^, )
+rename(^, )
+rewind(^);
 
-calloc(, )
-free()
-malloc()
-realloc(, )
-rand()
-exit()
+calloc(^, )
+free(^);
+malloc(^);
+realloc(^, );
+rand(^)
+exit(^);
 
-qsort()
-max(, )
-memset(, , )
-min(, )
-sort(, )
-swap(, )
-system()
+qsort(^);
+max(^, )
+memset(^, , );
+min(^, )
+sort(^, );
+swap(^, );
+system("^");
 FunctionsEnd;
 
 
@@ -139,6 +139,7 @@ find()
 front()
 insert()
 iterator
+length()
 lower_bound()
 merge()
 pop()

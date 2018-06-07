@@ -8,7 +8,7 @@ Function===\b(scanf|printf|sizeof|abs|ceil|fabs|floor|log|log10|pow|sqrt|strcat|
 
 STL===\b(list|map|queue|set|stack|string|vector)\b
 
-STLmethods===\.\b(assign|at|back|begin|cbegin|cend|clear|count|crbegin|crend|emplace|empty|end|equal_range|erase|find|front|insert|iterator|lower_bound|merge|pop|pop_back|push|push_back|rbegin|reference|remove|remove_if|rend|resize|reverse_iterator|size|sort|swap|top|unique|upper_bound)\b
+STLmethods===\.\b(assign|at|back|begin|cbegin|cend|clear|count|crbegin|crend|emplace|empty|end|equal_range|erase|find|front|insert|iterator|length|lower_bound|merge|pop|pop_back|push|push_back|rbegin|reference|remove|remove_if|rend|resize|reverse_iterator|size|sort|swap|top|unique|upper_bound)\b
 
 PreprocessingCommand===#\b(include|pragma|if|else|elif|ifndef|ifdef|endif|undef|define|line|error)\b|__[^>]*__
 
