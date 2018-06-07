@@ -87,6 +87,7 @@ namespace CodeDonut
                 //Form_Main.fastColoredTextBox.Selection.Start = new FastColoredTextBoxNS.Place(Form_Main.fastColoredTextBox.Lines[line].Length, line);
                 MainForm.FCTB.Selection.Start = new FastColoredTextBoxNS.Place(0, line);
                 MainForm.FCTB.SelectionLength = MainForm.FCTB.Lines[line].Length;
+                MainForm.FCTB.DoSelectionVisible();
                 MainForm.FCTB.Focus();
             }
         }
