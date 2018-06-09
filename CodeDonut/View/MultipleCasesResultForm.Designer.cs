@@ -47,6 +47,7 @@
             this.listView_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView_Main.FullRowSelect = true;
             this.listView_Main.Location = new System.Drawing.Point(0, 0);
+            this.listView_Main.MultiSelect = false;
             this.listView_Main.Name = "listView_Main";
             this.listView_Main.Size = new System.Drawing.Size(632, 450);
             this.listView_Main.TabIndex = 0;

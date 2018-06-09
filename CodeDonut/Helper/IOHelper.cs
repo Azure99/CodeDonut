@@ -10,7 +10,7 @@ namespace CodeDonut
     class IOHelper
     {
         /// <summary>
-        /// 以默认编码读文件，失败返回空
+        /// 读文件文本，若出现异常则返回空白string
         /// </summary>
         /// <param name="path">路径</param>
         /// <returns></returns>
@@ -18,10 +18,7 @@ namespace CodeDonut
         {
             try
             {
-                StreamReader sr = new StreamReader(path, Encoding.Default);
-                string res = sr.ReadToEnd();
-                sr.Close();
-                return res;
+                return File.ReadAllText(path);
             }
             catch
             {
@@ -30,7 +27,7 @@ namespace CodeDonut
         }
 
         /// <summary>
-        /// 以默认编码写文件，失败返回false
+        /// 写文件，以返回值标志是否成功
         /// </summary>
         /// <param name="path">路径</param>
         /// <param name="text">内容</param>
@@ -43,10 +40,7 @@ namespace CodeDonut
             }
             try
             {
-                FileStream fs = new FileStream(path, FileMode.Create);
-                StreamWriter sw = new StreamWriter(fs, Encoding.Default);
-                sw.Write(text);
-                sw.Close();
+                File.WriteAllText(path, text);
                 return true;
             }
             catch
@@ -54,8 +48,6 @@ namespace CodeDonut
                 return false;
             }
         }
-
-
 
         /// <summary>
         /// 从路径中取出文件名
@@ -72,24 +64,6 @@ namespace CodeDonut
             else
             {
                 return temp[temp.Length - 1];
-            }
-        }
-
-        /// <summary>
-        /// 获取文件类型
-        /// </summary>
-        /// <param name="path">路径</param>
-        /// <returns></returns>
-        public static string GetFileType(string path)
-        {
-            int p = path.LastIndexOf(".");
-            if (p != -1)
-            {
-                return path.Substring(p + 1, path.Length - p - 1);
-            }
-            else
-            {
-                return "";
             }
         }
 

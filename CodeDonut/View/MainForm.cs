@@ -19,6 +19,7 @@ namespace CodeDonut
         private ReplaceForm _replaceForm;
         private ACMModeForm _acmModeForm;
         private MultipleCasesTestForm _multipleCasesTestForm;
+        private ContestsForm _contestsForm;
         public static CompileErrorInfoForm FormCompileErrorInfo { get; set; }
         public static FastColoredTextBox FCTB { get; set; }
         public static MainForm FormMain { get; set; }
@@ -26,6 +27,7 @@ namespace CodeDonut
         private string[] _args;//启动参数
 
         private string currentFilePath;//当前编辑的源文件路径
+
 
         public MainForm(string[] args)
         {
@@ -93,6 +95,11 @@ namespace CodeDonut
             InitEditor(!path.ToLower().EndsWith("c"));//初始化编辑框，判断C/C++，默认C++
 
             LoadData(path);//加载源文件
+
+            new System.Threading.Thread(new System.Threading.ThreadStart(() =>
+            {
+                ContestsForm.InitContestsInfo();//后台预加载竞赛信息
+            })).Start();
         }
 
         private void InitText()
@@ -277,6 +284,15 @@ namespace CodeDonut
             {
                 _replaceForm = new ReplaceForm(fastColoredTextBox_Main);
                 _replaceForm.Show();
+            }
+        }
+
+        private void contestsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_contestsForm == null || _contestsForm.IsDisposed)
+            {
+                _contestsForm = new ContestsForm();
+                _contestsForm.Show();
             }
         }
 
@@ -501,5 +517,6 @@ namespace CodeDonut
             buildAndRunToolStripMenuItem_Click(null, null);
         }
         #endregion
+
     }
 }

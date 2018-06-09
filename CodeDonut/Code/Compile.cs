@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.IO;
 
 namespace CodeDonut
 {
@@ -92,7 +93,7 @@ namespace CodeDonut
 
         private static string StartCompiler(string filePath)//调用编译器
         {
-            bool isCppFile = IOHelper.GetFileType(filePath) != "c";
+            bool isCppFile = Path.GetExtension(filePath) != "c";
             string compiler;
             string args;
 

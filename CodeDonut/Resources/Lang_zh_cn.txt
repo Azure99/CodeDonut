@@ -35,6 +35,8 @@ MultipleCases Test=多例测试模式
 
 Bug Report=错误反馈
 
+Contests=竞赛
+
 New C++File=新C++源文件
 Open File=打开文件
 Save File=保存文件

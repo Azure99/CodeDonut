@@ -8,6 +8,9 @@ namespace CodeDonut
 {
     static class AutoAddFragment
     {
+        /*插入碎片的标志，用于inserting与inserted事件中传递消息，
+         * 避免在inserting继续插入碎片导致再次触发inserting事件导致无限递归而爆栈
+         */
         enum InsertFlag
         {
             No,
@@ -181,7 +184,7 @@ namespace CodeDonut
                 place.iChar--;
                 _fctb.Selection.Start = place;
             }
-            else if (_insertingFlag == InsertFlag.AfterEnter)
+            else if (_insertingFlag == InsertFlag.AfterEnter)//等待FCTB插入空格，之后触发下一个事件
             {
                 _insertingFlag = InsertFlag.AutoInsertBlank;
             }
@@ -190,7 +193,7 @@ namespace CodeDonut
                 _insertingFlag = InsertFlag.InsertingBlank;
 
                 Place place = _fctb.Selection.Start;
-                int blankCnt = Math.Max(0, place.iChar - 4);
+                int blankCnt = Math.Max(0, place.iChar - 4);//判断上一行的空格数
 
                 Place nextPlace = _fctb.Selection.Start;
                 nextPlace.iLine++;

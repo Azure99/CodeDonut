@@ -67,6 +67,7 @@
             this.runInACMModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.multipleCasesTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bugReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip_Main = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel_File = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_FileShow = new System.Windows.Forms.ToolStripStatusLabel();
@@ -122,6 +123,7 @@
             this.editToolStripMenuItem,
             this.searchToolStripMenuItem,
             this.buildTextToolStripMenuItem,
+            this.contestsToolStripMenuItem,
             this.bugReportToolStripMenuItem});
             this.menuStrip_Main.Location = new System.Drawing.Point(0, 0);
             this.menuStrip_Main.Name = "menuStrip_Main";
@@ -402,6 +404,13 @@
             this.bugReportToolStripMenuItem.Size = new System.Drawing.Size(104, 24);
             this.bugReportToolStripMenuItem.Text = "Bug Report";
             this.bugReportToolStripMenuItem.Click += new System.EventHandler(this.bugReportToolStripMenuItem_Click);
+            // 
+            // contestsToolStripMenuItem
+            // 
+            this.contestsToolStripMenuItem.Name = "contestsToolStripMenuItem";
+            this.contestsToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
+            this.contestsToolStripMenuItem.Text = "Contests";
+            this.contestsToolStripMenuItem.Click += new System.EventHandler(this.contestsToolStripMenuItem_Click);
             // 
             // statusStrip_Main
             // 
@@ -872,6 +881,7 @@
         private System.Windows.Forms.ToolStripMenuItem bugReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem runInACMModeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem multipleCasesTestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem contestsToolStripMenuItem;
     }
 }
 
