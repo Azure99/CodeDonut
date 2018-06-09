@@ -418,14 +418,20 @@ namespace CodeDonut
             {
                 Place place = FCTB.Selection.Start;
                 string line = FCTB.Lines[place.iLine];
+                string upperLine = FCTB.Lines[place.iLine - 1];
 
-                if (line.Length == 0 || place.iChar == 0)
+                if (line.Length == 0 || place.iChar == 0 || place.iLine == 0)
                 {
                     return;
                 }
 
-                for (int i = 0; i < place.iChar; i++) //判断此行是否全为空格
+                for (int i = 0; i < place.iChar; i++) //判断此行光标前是否全为空格
                 {
+                    if(i >= upperLine.Length || !(upperLine[i] == ' ' || upperLine[i] == '\t'))//若此行内容在上一行代码的右方，不自动全选
+                    {
+                        return;
+                    }
+
                     if (line[i] != ' ' && line[i] != '\t')
                     {
                         return;
