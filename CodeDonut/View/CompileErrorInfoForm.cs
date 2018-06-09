@@ -45,9 +45,9 @@ namespace CodeDonut
 
         public void AddErrorInfo(string line, string info, Color color)//添加错误信息
         {
-            ListViewItem lvi = listView_Main.Items.Add(line);
-            lvi.SubItems.Add(info);
-            lvi.ForeColor = color;
+            var item = listView_Main.Items.Add(line);
+            item.SubItems.Add(info);
+            item.ForeColor = color;
         }
 
         public void AdjustFormPosition()//自动调整窗口位置
@@ -75,23 +75,66 @@ namespace CodeDonut
 
         private void listView_Main_DoubleClick(object sender, EventArgs e)
         {
-            foreach(ListViewItem lvi in listView_Main.SelectedItems)
+            if(listView_Main.FocusedItem == null)
             {
-                if (lvi.Text == "-1")
-                {
-                    break;
-                }
-                int line;
-                Int32.TryParse(lvi.Text, out line);
-                line--;
-                //Form_Main.fastColoredTextBox.Selection.Start = new FastColoredTextBoxNS.Place(Form_Main.fastColoredTextBox.Lines[line].Length, line);
-                MainForm.FCTB.Selection.Start = new FastColoredTextBoxNS.Place(0, line);
-                MainForm.FCTB.SelectionLength = MainForm.FCTB.Lines[line].Length;
-                MainForm.FCTB.DoSelectionVisible();
-                MainForm.FCTB.Focus();
+                return;
+            }
+
+            var item = listView_Main.FocusedItem;
+
+            if (item.Text == "-1")
+            {
+                return;
+            }
+
+            int line;
+            Int32.TryParse(item.Text, out line);
+            line--;
+            //Form_Main.fastColoredTextBox.Selection.Start = new FastColoredTextBoxNS.Place(Form_Main.fastColoredTextBox.Lines[line].Length, line);
+            MainForm.FCTB.Selection.Start = new FastColoredTextBoxNS.Place(0, line);
+            MainForm.FCTB.SelectionLength = MainForm.FCTB.Lines[line].Length;
+            MainForm.FCTB.DoSelectionVisible();
+            MainForm.FCTB.Focus();
+        }
+
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (listView_Main.FocusedItem == null)
+            {
+                return;
+            }
+
+            Clipboard.SetText(listView_Main.FocusedItem.SubItems[1].Text);
+        }
+
+        private void nextErrorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (listView_Main.FocusedItem == null)
+            {
+                return;
+            }
+
+            int index = listView_Main.FocusedItem.Index;
+            if(index < listView_Main.Items.Count - 1)
+            {
+                listView_Main.FocusedItem = listView_Main.Items[index + 1];
+                listView_Main_DoubleClick(null, null);
             }
         }
 
+        private void previousErrorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (listView_Main.FocusedItem == null)
+            {
+                return;
+            }
 
+            int index = listView_Main.FocusedItem.Index;
+            if (index > 0)
+            {
+                listView_Main.FocusedItem = listView_Main.Items[index - 1];
+                listView_Main_DoubleClick(null, null);
+            }
+        }
     }
 }

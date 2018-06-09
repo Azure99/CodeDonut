@@ -42,8 +42,13 @@ namespace CodeDonut
 
         private void listView_Main_DoubleClick(object sender, EventArgs e)
         {
+            if(listView_Main.FocusedItem == null)
+            {
+                return;
+            }
+
             int index = listView_Main.FocusedItem.Index;
-            if (index >= 0 && index < contestInfos.Length)
+            if (index < contestInfos.Length)
             {
                 try
                 {
