@@ -40,38 +40,38 @@ namespace CodeDonut
             //补全与高亮
             if (File.Exists(folder + "Cpp_AutoComplete.dat"))
             {
-                Cpp_AutoComplete = IOHelper.ReadAllTextWithDfEncode(folder + "Cpp_AutoComplete.dat");
+                Cpp_AutoComplete = IOHelper.ReadAllText(folder + "Cpp_AutoComplete.dat");
             }
             else
             {
-                IOHelper.WriteAllTextWithDfEncode(folder + "Cpp_AutoComplete.dat", Cpp_AutoComplete);
+                IOHelper.WriteAllText(folder + "Cpp_AutoComplete.dat", Cpp_AutoComplete);
             }
 
             if (File.Exists(folder + "Cpp_HighLighting.dat"))
             {
-                Cpp_HighLighting = IOHelper.ReadAllTextWithDfEncode(folder + "Cpp_HighLighting.dat");
+                Cpp_HighLighting = IOHelper.ReadAllText(folder + "Cpp_HighLighting.dat");
             }
             else
             {
-                IOHelper.WriteAllTextWithDfEncode(folder + "Cpp_Highlighting.dat", Cpp_HighLighting);
+                IOHelper.WriteAllText(folder + "Cpp_Highlighting.dat", Cpp_HighLighting);
             }
 
             if (File.Exists(folder + "C_AutoComplete.dat"))
             {
-                C_AutoComplete = IOHelper.ReadAllTextWithDfEncode(folder + "C_AutoComplete.dat");
+                C_AutoComplete = IOHelper.ReadAllText(folder + "C_AutoComplete.dat");
             }
             else
             {
-                IOHelper.WriteAllTextWithDfEncode(folder + "C_AutoComplete.dat", C_AutoComplete);
+                IOHelper.WriteAllText(folder + "C_AutoComplete.dat", C_AutoComplete);
             }
 
             if (File.Exists(folder + "C_HighLighting.dat"))
             {
-                C_HighLighting = IOHelper.ReadAllTextWithDfEncode(folder + "C_HighLighting.dat");
+                C_HighLighting = IOHelper.ReadAllText(folder + "C_HighLighting.dat");
             }
             else
             {
-                IOHelper.WriteAllTextWithDfEncode(folder + "C_Highlighting.dat", C_HighLighting);
+                IOHelper.WriteAllText(folder + "C_Highlighting.dat", C_HighLighting);
             }
         }
 

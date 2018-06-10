@@ -113,10 +113,10 @@ namespace CodeDonut
         {
             if (_args.Length == 0 && !File.Exists(path))//创建新文件
             {
-                IOHelper.WriteAllTextWithDfEncode(path, CodeDonut.Properties.Resources.CppDefaultCode);
+                IOHelper.WriteAllText(path, CodeDonut.Properties.Resources.CppDefaultCode);
             }
 
-            fastColoredTextBox_Main.Text = IOHelper.ReadAllTextWithDfEncode(path);
+            fastColoredTextBox_Main.Text = IOHelper.ReadAllText(path);
             this.Text = "CodeDonut - " + path;
             currentFilePath = path;
         }
@@ -131,13 +131,13 @@ namespace CodeDonut
 
         private bool Exit()//退出
         {
-            if (fastColoredTextBox_Main.Text != IOHelper.ReadAllTextWithDfEncode(currentFilePath))
+            if (fastColoredTextBox_Main.Text != IOHelper.ReadAllText(currentFilePath))
             {
                 if (MessageBox.Show(I18N.GetValue("Do you want to exit?"), "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     if (MessageBox.Show(I18N.GetValue("Do you want to save changes?"), "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        if (!IOHelper.WriteAllTextWithDfEncode(currentFilePath, fastColoredTextBox_Main.Text))
+                        if (!IOHelper.WriteAllText(currentFilePath, fastColoredTextBox_Main.Text))
                         {
                             MessageBox.Show(I18N.GetValue("Can't write source file."), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return false;
@@ -149,7 +149,7 @@ namespace CodeDonut
                     return false;
                 }
             }
-            IOHelper.WriteAllTextWithDfEncode("LastOpen.dat", currentFilePath);
+            IOHelper.WriteAllText("LastOpen.dat", currentFilePath);
 
             Config.MainFormHeight = this.Height.ToString();
             Config.MainFormWidth = this.Width.ToString();
@@ -319,7 +319,7 @@ namespace CodeDonut
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(!IOHelper.WriteAllTextWithDfEncode(currentFilePath,fastColoredTextBox_Main.Text))
+            if(!IOHelper.WriteAllText(currentFilePath,fastColoredTextBox_Main.Text))
             {
                 MessageBox.Show("Can't write source file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -333,7 +333,7 @@ namespace CodeDonut
                 return;
             }
 
-            if (!IOHelper.WriteAllTextWithDfEncode(path, fastColoredTextBox_Main.Text))
+            if (!IOHelper.WriteAllText(path, fastColoredTextBox_Main.Text))
             {
                 MessageBox.Show("Can't write source file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -348,7 +348,7 @@ namespace CodeDonut
 
         private void buildToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            IOHelper.WriteAllTextWithDfEncode(currentFilePath, fastColoredTextBox_Main.Text);
+            IOHelper.WriteAllText(currentFilePath, fastColoredTextBox_Main.Text);
             Compile.CompileFile(currentFilePath);
         }
 
@@ -359,7 +359,7 @@ namespace CodeDonut
 
         private void buildAndRunToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            IOHelper.WriteAllTextWithDfEncode(currentFilePath, fastColoredTextBox_Main.Text);
+            IOHelper.WriteAllText(currentFilePath, fastColoredTextBox_Main.Text);
             if (Compile.CompileFile(currentFilePath))
             {
                 ProcessHelper.StartProcessIgnoreException(currentFilePath + ".exe");

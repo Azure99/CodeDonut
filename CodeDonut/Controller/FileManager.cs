@@ -15,7 +15,7 @@ namespace CodeDonut
         /// <returns></returns>
         public static string GetLastOpenFilePath()
         {
-            string path = IOHelper.ReadAllTextWithDfEncode("LastOpen.dat");
+            string path = IOHelper.ReadAllText("LastOpen.dat");
             if (!String.IsNullOrEmpty(path))
             {
                 if(File.Exists(path))
@@ -59,7 +59,7 @@ namespace CodeDonut
             }
 
             string defaultCode = isCpp ? CodeDonut.Properties.Resources.CppDefaultCode : CodeDonut.Properties.Resources.CDefaultCode;
-            if (!IOHelper.WriteAllTextWithDfEncode(sfd.FileName, defaultCode)) 
+            if (!IOHelper.WriteAllText(sfd.FileName, defaultCode)) 
             {
                 MessageBox.Show(I18N.GetValue("Can't creat new file."), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

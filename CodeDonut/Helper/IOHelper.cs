@@ -14,11 +14,11 @@ namespace CodeDonut
         /// </summary>
         /// <param name="path">路径</param>
         /// <returns></returns>
-        public static string ReadAllTextWithDfEncode(string path)
+        public static string ReadAllText(string path)
         {
             try
             {
-                return File.ReadAllText(path);
+                return File.ReadAllText(path, Encoding.UTF8);
             }
             catch
             {
@@ -32,7 +32,7 @@ namespace CodeDonut
         /// <param name="path">路径</param>
         /// <param name="text">内容</param>
         /// <returns></returns>
-        public static bool WriteAllTextWithDfEncode(string path, string text)
+        public static bool WriteAllText(string path, string text)
         {
             if (path.Contains("SourceFile"))//确保SourceFile文件夹存在
             {
@@ -40,7 +40,7 @@ namespace CodeDonut
             }
             try
             {
-                File.WriteAllText(path, text);
+                File.WriteAllText(path, text, Encoding.UTF8);
                 return true;
             }
             catch
