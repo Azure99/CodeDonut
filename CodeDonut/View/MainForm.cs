@@ -434,12 +434,13 @@ namespace CodeDonut
             {
                 Place place = FCTB.Selection.Start;
                 string line = FCTB.Lines[place.iLine];
-                string upperLine = FCTB.Lines[place.iLine - 1];
-
+                
                 if (line.Length == 0 || place.iChar == 0 || place.iLine == 0)
                 {
                     return;
                 }
+
+                string upperLine = FCTB.Lines[place.iLine - 1];
 
                 for (int i = 0; i < place.iChar; i++) //判断此行光标前是否全为空格
                 {
