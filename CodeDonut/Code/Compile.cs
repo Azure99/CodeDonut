@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Text.RegularExpressions;
+﻿using CodeDonut.Controller;
+using System;
 using System.IO;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
-namespace CodeDonut
+namespace CodeDonut.Code
 {
     class Compile
     {

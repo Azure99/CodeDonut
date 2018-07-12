@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.IO;
+using System.Windows.Forms;
 
-namespace CodeDonut
+namespace CodeDonut.Controller
 {
-    class FileManager
+    static class FileManager
     {
         /// <summary>
         /// 取得上次打开的文件

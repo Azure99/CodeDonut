@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FastColoredTextBoxNS;
+﻿using FastColoredTextBoxNS;
+using System;
 
-namespace CodeDonut
+namespace CodeDonut.Code
 {
     static class AutoAddFragment
     {
-        /*插入碎片的标志，用于inserting与inserted事件中传递消息，
+        /* 插入碎片的标志，用于inserting与inserted事件中传递消息，
          * 避免在inserting继续插入碎片导致再次触发inserting事件导致无限递归而爆栈
          */
         enum InsertFlag
@@ -35,7 +32,6 @@ namespace CodeDonut
         }
         public static void OnTextChanging(object sender, TextChangingEventArgs e)
         {
-
             if (e.InsertingText == "\"" && _insertingFlag == InsertFlag.No)
             {
                 Range range = _fctb.Selection;

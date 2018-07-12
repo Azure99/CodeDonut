@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using CodeDonut.Judger;
 using System.Diagnostics;
 using System.IO;
-using CodeDonut.Judger;
 
-namespace CodeDonut
+namespace CodeDonut.Controller
 {
     class MultipleJudgeController
     {

@@ -1,12 +1,10 @@
-﻿using System;
+﻿using FastColoredTextBoxNS;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using FastColoredTextBoxNS;
 using System.Windows.Forms;
 
-namespace CodeDonut
+namespace CodeDonut.Code
 {
     static class AutoComplete
     {

@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Diagnostics;
-using System.Timers;
-using System.Text.RegularExpressions;
 
 namespace CodeDonut.Judger
 {
@@ -14,6 +9,7 @@ namespace CodeDonut.Judger
         public string WorkingDirectory { get; set; }
         public int TimeLimit { get; set; }
         public Process CurrentProcess { get; set; }
+
         public Judger(string fileName, int timeLimit = 1000, string workingDirectory = "")
         {
             FileName = fileName;
@@ -21,7 +17,7 @@ namespace CodeDonut.Judger
             WorkingDirectory = workingDirectory;
         }
 
-        public JudgeResult Judge(string input, string output, string testCaseName = "")
+        public JudgeResult Judge(string inputData, string outputData, string testCaseName = "")
         {
             Process process = new Process();
             CurrentProcess = process;
@@ -33,11 +29,11 @@ namespace CodeDonut.Judger
             JudgeResult judgeResult = new JudgeResult{
                 Result = ResultCode.Accepted,
                 TestCaseName = testCaseName,
-                TestCaseSize = input.Length };
+                TestCaseSize = inputData.Length };
 
             try
             {
-                programOutput = Run(process, input);
+                programOutput = Run(process, inputData);
             }
             catch(RuntimeErrorException e)
             {
@@ -71,18 +67,18 @@ namespace CodeDonut.Judger
             }
 
             judgeResult.OutPut = programOutput;
-            if (string.IsNullOrEmpty(output))//测试数据无输出数据，将本次运行作为输出数据
+            if (string.IsNullOrEmpty(outputData))//测试数据无输出数据，将本次运行作为输出数据
             {
                 judgeResult.Result = ResultCode.OutPut;
             }
             else//有测试输出
             {
-                int res = JudgeAnswer(output, programOutput);
-                if (res == 1)
+                string res = JudgeAnswer(outputData, programOutput);
+                if (res == "wa")
                 {
                     judgeResult.Result = ResultCode.WrongAnswer;
                 }
-                else if(res == 2)
+                else if(res == "pe")
                 {
                     judgeResult.Result = ResultCode.PresentationError;
                 }
@@ -114,40 +110,39 @@ namespace CodeDonut.Judger
 
             //Console.WriteLine(output);
 
-            if(!string.IsNullOrEmpty(error))//StdError有输出-RE
+            if(!string.IsNullOrEmpty(error))//StdError流有输出-运行时错误
             {
                 throw new RuntimeErrorException("Runtime Error: StdError is not null\n", error);
             }
 
             try
             {
-                if (process.ExitCode != 0)//ExitCode不为0-RE
+                if (process.ExitCode != 0)//ExitCode不为0-运行时错误
                 {
                     throw new RuntimeErrorException("Runtime Error", "ExitCode is not 0");
                 }
             }
             catch (InvalidOperationException) { }
 
-            
             process.Close();
 
             return output;
 
         }
 
-        /// <returns>0AC-1WA-2PE</returns>
-        public int JudgeAnswer(string trueAnswer, string outputAnswer)
+
+        public string JudgeAnswer(string trueAnswer, string outputAnswer)
         {
             if(trueAnswer == outputAnswer)
             {
-                return 0;
+                return "ac";
             }
 
             trueAnswer = trueAnswer.Replace("\r\n", "\n").Replace("\r", "\n");
             outputAnswer = outputAnswer.Replace("\r\n", "\n").Replace("\r", "\n");
             if(trueAnswer == outputAnswer)
             {
-                return 0;
+                return "ac";
             }
 
             string[] trueArr = trueAnswer.Split(new char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
@@ -155,18 +150,18 @@ namespace CodeDonut.Judger
 
             if(trueArr.Length != outputArr.Length)
             {
-                return 1;
+                return "wa";
             }
 
             for (int i = 0; i < trueArr.Length; i++) 
             {
                 if(trueArr[i].TrimEnd() != outputArr[i].TrimEnd())
                 {
-                    return 1;
+                    return "wa";
                 }
             }
             
-            return 2;
+            return "pe";
         }
     }
 }

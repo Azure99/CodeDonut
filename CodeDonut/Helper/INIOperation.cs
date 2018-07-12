@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Runtime.InteropServices;
+using System.Text;
 
 namespace CodeDonut
 {
-        /// <summary>
-        /// Simple INI operation
-        /// </summary>
-        class INIOperation
+    /// <summary>
+    /// Simple INI operation
+    /// </summary>
+    class INIOperation
         {
 
             [DllImport("kernel32")]
