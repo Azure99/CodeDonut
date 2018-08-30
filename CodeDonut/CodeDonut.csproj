@@ -97,11 +97,8 @@
     <Compile Include="View\OutPutForm.Designer.cs">
       <DependentUpon>OutPutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helper\ProcessHelper.cs" />
     <Compile Include="Controller\Configuration.cs" />
-    <Compile Include="Helper\INIOperation.cs" />
     <Compile Include="Controller\FileManager.cs" />
-    <Compile Include="Helper\IOHelper.cs" />
     <Compile Include="Code\AutoComplete.cs" />
     <Compile Include="Code\HighlightingCode.cs" />
     <Compile Include="View\MainForm.cs">
@@ -232,9 +229,17 @@
     <None Include="Resources\Lang_zh_cn.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CodeDonut.Compiler\CodeDonut.Compiler.csproj">
+      <Project>{37185956-eb2e-4dbd-938c-e6014d81ab5a}</Project>
+      <Name>CodeDonut.Compiler</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CodeDonut.Judger\CodeDonut.Judger.csproj">
       <Project>{d6e33c03-3b19-4fba-a714-3acefb723068}</Project>
       <Name>CodeDonut.Judger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CodeDonut.Utils\CodeDonut.Utils.csproj">
+      <Project>{4de6036d-796c-4e4e-ba67-139c1a92c95e}</Project>
+      <Name>CodeDonut.Utils</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

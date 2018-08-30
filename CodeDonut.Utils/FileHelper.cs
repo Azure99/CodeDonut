@@ -1,11 +1,10 @@
-﻿using CodeDonut.Controller;
-using System;
+﻿using System;
 using System.IO;
 using System.Text;
 
-namespace CodeDonut
+namespace CodeDonut.Utils
 {
-    class IOHelper
+    public static class FileHelper
     {
         /// <summary>
         /// 读文件文本，若出现异常则返回空白string
@@ -34,7 +33,14 @@ namespace CodeDonut
         {
             if (path.Contains("SourceFile"))//确保SourceFile文件夹存在
             {
-                FileManager.CheckSourceFileFolder();
+                if (!Directory.Exists("SourceFile"))
+                {
+                    try
+                    {
+                        Directory.CreateDirectory("SourceFile");
+                    }
+                    catch { }
+                }
             }
             try
             {
@@ -72,7 +78,7 @@ namespace CodeDonut
         /// <returns></returns>
         public static string GetBaseAbsolutePath(string path)
         {
-            if(path.IndexOf(":") != -1)
+            if (path.IndexOf(":") != -1)
             {
                 return path;
             }

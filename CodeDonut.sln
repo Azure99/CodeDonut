@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeDonut", "CodeDonut\Code
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeDonut.Judger", "CodeDonut.Judger\CodeDonut.Judger.csproj", "{D6E33C03-3B19-4FBA-A714-3ACEFB723068}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeDonut.Compiler", "CodeDonut.Compiler\CodeDonut.Compiler.csproj", "{37185956-EB2E-4DBD-938C-E6014D81AB5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeDonut.Utils", "CodeDonut.Utils\CodeDonut.Utils.csproj", "{4DE6036D-796C-4E4E-BA67-139C1A92C95E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{D6E33C03-3B19-4FBA-A714-3ACEFB723068}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6E33C03-3B19-4FBA-A714-3ACEFB723068}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6E33C03-3B19-4FBA-A714-3ACEFB723068}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37185956-EB2E-4DBD-938C-E6014D81AB5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37185956-EB2E-4DBD-938C-E6014D81AB5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37185956-EB2E-4DBD-938C-E6014D81AB5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37185956-EB2E-4DBD-938C-E6014D81AB5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DE6036D-796C-4E4E-BA67-139C1A92C95E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DE6036D-796C-4E4E-BA67-139C1A92C95E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DE6036D-796C-4E4E-BA67-139C1A92C95E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DE6036D-796C-4E4E-BA67-139C1A92C95E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

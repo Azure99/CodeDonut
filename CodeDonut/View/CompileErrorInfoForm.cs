@@ -1,4 +1,5 @@
-﻿using CodeDonut.Controller;
+﻿using CodeDonut.Compiler;
+using CodeDonut.Controller;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -39,11 +40,11 @@ namespace CodeDonut
             }
         }
 
-        public void AddErrorInfo(string line, string info, Color color)//添加错误信息
+        public void AddErrorInfo(CompileErrorInfo errorInfo)//添加错误信息
         {
-            var item = listView_Main.Items.Add(line);
-            item.SubItems.Add(info);
-            item.ForeColor = color;
+            var item = listView_Main.Items.Add(errorInfo.Line.ToString());
+            item.SubItems.Add(errorInfo.Info);
+            item.ForeColor = errorInfo.InfoColor;
         }
 
         public void AdjustFormPosition()//自动调整窗口位置

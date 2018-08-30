@@ -1,15 +1,15 @@
 ﻿using System.Diagnostics;
 
-namespace CodeDonut
+namespace CodeDonut.Utils
 {
-    class ProcessHelper
+    public class ProcessRunner
     {
         /// <summary>
-        /// 以无窗口方式运行程序，用于调用编译器
+        /// 以无窗口方式运行程序
         /// </summary>
         /// <param name="readStdError">是否为读取标准错误流(默认读取标准输出流)</param>
         /// <returns>执行结果</returns>
-        public static string RunProcessWithNoWindow(string filePath, string args, string workingDirectory = "", bool readStdError = false)
+        public string RunProcessWithNoWindow(string filePath, string args, string workingDirectory = "", bool readStdError = false)
         {
             try
             {
@@ -47,6 +47,10 @@ namespace CodeDonut
             }
         }
 
+        /// <summary>
+        /// 忽略异常地运行指定程序
+        /// </summary>
+        /// <param name="filePath">程序路径</param>
         public static void StartProcessIgnoreException(string filePath)
         {
             try

@@ -1,9 +1,10 @@
-﻿using CodeDonut.Code;
-using CodeDonut.Controller;
-using FastColoredTextBoxNS;
-using System;
+﻿using System;
 using System.IO;
 using System.Windows.Forms;
+using CodeDonut.Code;
+using CodeDonut.Controller;
+using CodeDonut.Utils;
+using FastColoredTextBoxNS;
 
 namespace CodeDonut
 {
@@ -109,10 +110,10 @@ namespace CodeDonut
         {
             if (_args.Length == 0 && !File.Exists(path))//创建新文件
             {
-                IOHelper.WriteAllText(path, CodeDonut.Properties.Resources.CppDefaultCode);
+                FileHelper.WriteAllText(path, CodeDonut.Properties.Resources.CppDefaultCode);
             }
 
-            fastColoredTextBox_Main.Text = IOHelper.ReadAllText(path);
+            fastColoredTextBox_Main.Text = FileHelper.ReadAllText(path);
             this.Text = "CodeDonut - " + path;
             currentFilePath = path;
         }
@@ -127,13 +128,13 @@ namespace CodeDonut
 
         private bool Exit()//退出
         {
-            if (fastColoredTextBox_Main.Text != IOHelper.ReadAllText(currentFilePath))
+            if (fastColoredTextBox_Main.Text != FileHelper.ReadAllText(currentFilePath))
             {
                 if (MessageBox.Show(I18N.GetValue("Do you want to exit?"), "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     if (MessageBox.Show(I18N.GetValue("Do you want to save changes?"), "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        if (!IOHelper.WriteAllText(currentFilePath, fastColoredTextBox_Main.Text))
+                        if (!FileHelper.WriteAllText(currentFilePath, fastColoredTextBox_Main.Text))
                         {
                             MessageBox.Show(I18N.GetValue("Can't write source file."), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return false;
@@ -145,7 +146,7 @@ namespace CodeDonut
                     return false;
                 }
             }
-            IOHelper.WriteAllText("LastOpen.dat", currentFilePath);
+            FileHelper.WriteAllText("LastOpen.dat", currentFilePath);
 
             Config.MainFormHeight = this.Height.ToString();
             Config.MainFormWidth = this.Width.ToString();
@@ -315,7 +316,7 @@ namespace CodeDonut
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(!IOHelper.WriteAllText(currentFilePath,fastColoredTextBox_Main.Text))
+            if(!FileHelper.WriteAllText(currentFilePath,fastColoredTextBox_Main.Text))
             {
                 MessageBox.Show("Can't write source file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -329,7 +330,7 @@ namespace CodeDonut
                 return;
             }
 
-            if (!IOHelper.WriteAllText(path, fastColoredTextBox_Main.Text))
+            if (!FileHelper.WriteAllText(path, fastColoredTextBox_Main.Text))
             {
                 MessageBox.Show("Can't write source file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -344,21 +345,21 @@ namespace CodeDonut
 
         private void buildToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            IOHelper.WriteAllText(currentFilePath, fastColoredTextBox_Main.Text);
+            FileHelper.WriteAllText(currentFilePath, fastColoredTextBox_Main.Text);
             Compile.CompileFile(currentFilePath);
         }
 
         private void runToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ProcessHelper.StartProcessIgnoreException(currentFilePath + ".exe");
+            ProcessRunner.StartProcessIgnoreException(currentFilePath + ".exe");
         }
 
         private void buildAndRunToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            IOHelper.WriteAllText(currentFilePath, fastColoredTextBox_Main.Text);
+            FileHelper.WriteAllText(currentFilePath, fastColoredTextBox_Main.Text);
             if (Compile.CompileFile(currentFilePath))
             {
-                ProcessHelper.StartProcessIgnoreException(currentFilePath + ".exe");
+                ProcessRunner.StartProcessIgnoreException(currentFilePath + ".exe");
             }
         }
         private void bugReportToolStripMenuItem_Click(object sender, EventArgs e)
@@ -401,7 +402,7 @@ namespace CodeDonut
         #region 代码编辑事件
         private void Form_Main_TextChanged(object sender, EventArgs e)
         {
-            toolStripStatusLabel_FileShow.Text = IOHelper.GetFileName(this.Text);
+            toolStripStatusLabel_FileShow.Text = FileHelper.GetFileName(this.Text);
         }
 
         private void fastColoredTextBox_Main_TextChanged(object sender, TextChangedEventArgs e)

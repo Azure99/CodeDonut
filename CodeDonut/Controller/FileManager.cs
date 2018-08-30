@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
+using CodeDonut.Utils;
 
 namespace CodeDonut.Controller
 {
@@ -13,7 +14,7 @@ namespace CodeDonut.Controller
         /// <returns></returns>
         public static string GetLastOpenFilePath()
         {
-            string path = IOHelper.ReadAllText("LastOpen.dat");
+            string path = FileHelper.ReadAllText("LastOpen.dat");
             if (!String.IsNullOrEmpty(path))
             {
                 if(File.Exists(path))
@@ -40,12 +41,12 @@ namespace CodeDonut.Controller
             SaveFileDialog sfd = new SaveFileDialog();
             if(isCpp)
             {
-                sfd.FileName = IOHelper.GetFileName(FileManager.GetAvalibleFilePath()) + ".cpp";
+                sfd.FileName = FileHelper.GetFileName(FileManager.GetAvalibleFilePath()) + ".cpp";
                 sfd.Filter = "C++ files(*.cpp)|*.cpp";
             }
             else
             {
-                sfd.FileName = IOHelper.GetFileName(FileManager.GetAvalibleFilePath()) + ".c";
+                sfd.FileName = FileHelper.GetFileName(FileManager.GetAvalibleFilePath()) + ".c";
                 sfd.Filter = "C files(*.c)|*.c";
             }
 
@@ -57,7 +58,7 @@ namespace CodeDonut.Controller
             }
 
             string defaultCode = isCpp ? CodeDonut.Properties.Resources.CppDefaultCode : CodeDonut.Properties.Resources.CDefaultCode;
-            if (!IOHelper.WriteAllText(sfd.FileName, defaultCode)) 
+            if (!FileHelper.WriteAllText(sfd.FileName, defaultCode)) 
             {
                 MessageBox.Show(I18N.GetValue("Can't creat new file."), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -94,7 +95,7 @@ namespace CodeDonut.Controller
         public static string SaveSourceFileAsDialog(string oldPath)
         {
             SaveFileDialog sfd = new SaveFileDialog();
-            sfd.FileName = IOHelper.GetFileName(oldPath);
+            sfd.FileName = FileHelper.GetFileName(oldPath);
             sfd.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory + "SourceFile";
 
             if (sfd.ShowDialog() == DialogResult.OK)
@@ -120,7 +121,7 @@ namespace CodeDonut.Controller
                 filesNum.Add(-1);
                 for (int i = 0; i < files.Length; i++)
                 {
-                    string currentFileName = IOHelper.GetFileName(files[i]);
+                    string currentFileName = FileHelper.GetFileName(files[i]);
                     if (currentFileName.StartsWith("unnamed"))
                     {
                         int p = currentFileName.IndexOf('.');
